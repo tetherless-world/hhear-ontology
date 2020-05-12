@@ -1,7 +1,7 @@
-git+git://github.com/jimmccusker/rdflib.git@sparqlwrapper-fork#egg=rdflib
+rdflib==5.0.0
 invoke
 requests
 Jinja2
-git+git://github.com/jimmccusker/rdflib-jsonld.git#egg=rdflib-jsonld
+rdflib-jsonld==0.5.0
 setlr
 openpyxl==2.6.3
