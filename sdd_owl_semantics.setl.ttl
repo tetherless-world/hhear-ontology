@@ -1,0 +1,249 @@
+@prefix rdf:           <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:          <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:           <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:           <http://www.w3.org/2002/07/owl#> .
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:          <http://www.w3.org/ns/prov#> .
+@prefix sio:           <http://semanticscience.org/resource/> .
+@prefix dcat:          <http://www.w3.org/ns/dcat#> .
+@prefix dcterms:       <http://purl.org/dc/terms/> .
+@prefix void:          <http://rdfs.org/ns/void#> .
+@prefix foaf:          <http://xmlns.com/foaf/0.1/> .
+@prefix ov:            <http://open.vocab.org/terms/> .
+@prefix setl:          <http://purl.org/twc/vocab/setl/> .
+@prefix csvw:          <http://www.w3.org/ns/csvw#> .
+@prefix pv:            <http://purl.org/net/provenance/ns#>.
+@prefix bibo:          <http://purl.org/ontology/bibo/>.
+
+@prefix :              <http://purl.org/twc/sdd/setl/> .
+
+
+:info_sheet a setl:Table;
+  prov:wasGeneratedBy [
+    a setl:Extract;
+  ].
+
+
+
+:dm_table a setl:Table;
+  prov:wasGeneratedBy [
+    a setl:Extract;
+  ].
+
+:timeline_table a setl:Table;
+  prov:wasGeneratedBy [
+    a setl:Extract;
+  ].
+
+:codebook_table a setl:Table;
+  prov:wasGeneratedBy [
+    a setl:Extract;
+  ].
+
+:codemapping_table a setl:Table;
+  prov:wasGeneratedBy [
+    a setl:Extract;
+  ].
+
+:resolve_uri a owl:Class, prov:SoftwareAgent, setl:PythonScript;
+  rdfs:subClassOf prov:Activity;
+  prov:qualifiedDerivation [ a prov:Derivation; prov:entity :codemapping_table; prov:hadRole [ dcterms:identifier "codemap"]];
+  prov:value '''
+import rdflib
+
+global codes
+codes = {}
+for index, row in codemap.iterrows():
+    codes[row.code] = row.uri
+
+def resolve_uri(code):
+    if code in codes:
+        return codes[code]
+    return code
+result = resolve_uri
+'''.
+
+
+:get_codebook_class a owl:Class, prov:SoftwareAgent, setl:PythonScript;
+  rdfs:subClassOf prov:Activity;
+  prov:qualifiedDerivation [ a prov:Derivation; prov:entity :codemapping_table; prov:hadRole [ dcterms:identifier "codemap"]];
+  prov:qualifiedDerivation [ a prov:Derivation; prov:entity :get_class; prov:hadRole [ dcterms:identifier "get_class"]];
+  prov:qualifiedDerivation [ a prov:Derivation; prov:entity :resolve_uri; prov:hadRole [ dcterms:identifier "resolve_uri"]];
+  prov:value '''
+global isempty
+from setlr import isempty
+
+global compare
+import rdflib.compare as compare
+
+global rdflib
+import rdflib
+
+global context
+context = {
+    "@base" :  "http://purl.org/twc/sdd/metadata/study/",
+    "sio" :     "http://semanticscience.org/resource/",
+    "chear" :   "http://hadatac.org/ont/chear#",
+    "skos" :    "http://www.w3.org/2004/02/skos/core#",
+    "prov" :    "http://www.w3.org/ns/prov#",
+    "doid" : "http://purl.obolibrary.org/obo/DOID_",
+    "dc"   :    "http://purl.org/dc/terms/",
+    "cmo"  :    "http://purl.obolibrary.org/obo/CMO_",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdfs" :    "http://www.w3.org/2000/01/rdf-schema#",
+    "chebi" :   "http://purl.obolibrary.org/obo/CHEBI_",
+    "stato" :   "http://purl.obolibrary.org/obo/STATO_",
+    "obo" :   "http://purl.obolibrary.org/obo/",
+    "pubchem" : "http://rdf.ncbi.nlm.nih.gov/pubchem/compound/",
+    "dc"   :    "http://purl.org/dc/terms/",
+    "hasco" : "http://hadatac.org/ont/hasco#",
+    "vstoi" : "http://hadatac.org/ont/vstoi#",
+    "hasneto" : "http://hadatac.org/ont/hasneto#",
+    "uberon" : "http://purl.obolibrary.org/obo/UBERON_",
+    "prv" : "http://hadatac.org/ont/prov#"
+}
+
+global json
+import json
+
+def result(code, codes, column):
+  if isempty(code.get('Class')) and isempty(code.get('Resource')):
+    parent_class = resolve_uri(get_class(column))
+    json_ld_graph = {
+        "@context" : "https://raw.githubusercontent.com/jimmccusker/ontext/master/owl-context.jsonld",
+        "@id" : parent_class
+    }
+    other_classes = [c.Class.strip() for i, c in codes.iterrows() if not isempty(c.get('Class'))]
+    other_classes = sorted([resolve_uri(c) for c in other_classes])
+    other_classes.append({"@type": "owl:Class", "rdfs:subClassOf": parent_class})
+    json_ld_graph['du'] = other_classes
+    subgraph = rdflib.Graph()
+    subgraph.parse(data=json.dumps(json_ld_graph),format="json-ld", context = context)
+    iso = compare.to_canonical_graph(subgraph)
+    return str(list(iso.triples((None,rdflib.RDFS.subClassOf,None)))[0][0])
+  elif not isempty(code.get('Resource')):
+    return resolve_uri(code.get('Resource').strip())
+  else:
+    return resolve_uri(code.get('Class').strip())
+
+'''.
+
+:get_class a owl:Class, prov:SoftwareAgent, setl:PythonScript;
+  rdfs:subClassOf prov:Activity;
+  prov:qualifiedDerivation [ a prov:Derivation; prov:entity :codemapping_table; prov:hadRole [ dcterms:identifier "codemap"]];
+  prov:value '''
+import rdflib
+
+global re
+import re
+
+global isempty
+from setlr import isempty
+
+def get_class(row):
+    for col in ['Entity', 'Attribute']:
+        if not isempty(row.get(col)):
+            classes = re.split('\\\\s*[,;&]\\\\s*', row.get(col).strip())
+            if len(classes) > 0:
+                return classes[0].strip()
+result = get_class
+'''.
+
+:generate_other_label a owl:Class, prov:SoftwareAgent, setl:PythonScript;
+  rdfs:subClassOf prov:Activity;
+  prov:value '''
+global isempty
+from setlr import isempty
+
+def result(code, codes, column):
+    if isempty(code.get('Class')) and isempty(code.get('Resource')):
+        if not isempty(code.get('Label')):
+            return code.get('Label')
+        elif len(codes) == 2:
+            for i, row in codes.iterrows():
+                if row.Code != code.Code:
+                    return "%s not %s" % (column.Label,row.Label)
+        else:
+            return "Other %s" % column.Label
+'''.
+
+
+:dataset_properties a owl:Class, prov:SoftwareAgent, setl:PythonScript;
+  rdfs:subClassOf prov:Activity;
+  prov:qualifiedDerivation [ a prov:Derivation; prov:entity :info_sheet; prov:hadRole [ dcterms:identifier "infosheet"]];
+  prov:value '''
+import rdflib
+
+properties = {}
+for index, row in infosheet.iterrows():
+    properties[row.Attribute] = row.Value
+
+result = properties
+'''.
+
+
+:metadata a void:Dataset;
+  prov:wasGeneratedBy [
+    a setl:Transform, setl:JSLDT;
+    prov:used :dm_table;
+    prov:qualifiedUsage [ a prov:Use; prov:entity :resolve_uri; prov:hadRole [ dcterms:identifier "resolve_uri"]];
+    prov:qualifiedUsage [ a prov:Use; prov:entity :get_class; prov:hadRole [ dcterms:identifier "get_class"]];
+    prov:qualifiedUsage [ a prov:Use; prov:entity :get_codebook_class; prov:hadRole [ dcterms:identifier "get_codebook_class"]];
+    prov:qualifiedUsage [ a prov:Use; prov:entity :generate_other_label; prov:hadRole [ dcterms:identifier "generate_other_label"]];
+    prov:qualifiedUsage [ a prov:Use; prov:entity :dataset_properties; prov:hadRole [ dcterms:identifier "properties"]];
+    prov:qualifiedUsage [ a prov:Use; prov:entity :codebook_table; prov:hadRole [ dcterms:identifier "codebook"]];
+    setl:hasContext '''"https://raw.githubusercontent.com/jimmccusker/ontext/master/owl-context.jsonld"''';
+    prov:value '''
+[
+    {
+    	"@id": "http://purl.org/twc/sdd/metadata",
+        "@context": {
+            "@base" :  "http://purl.org/twc/ctxid/",
+            "sio" :     "http://semanticscience.org/resource/",
+            "chear" :   "http://hadatac.org/ont/chear#",
+            "skos" :    "http://www.w3.org/2004/02/skos/core#",
+            "prov" :    "http://www.w3.org/ns/prov#",
+            "dc"   :    "http://purl.org/dc/terms/",
+            "cmo"  :    "http://purl.obolibrary.org/obo/CMO_",
+            "doid" : "http://purl.obolibrary.org/obo/DOID_",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "rdfs" :    "http://www.w3.org/2000/01/rdf-schema#",
+            "chebi" :   "http://purl.obolibrary.org/obo/CHEBI_",
+            "stato" :   "http://purl.obolibrary.org/obo/STATO_",
+            "obo" :   "http://purl.obolibrary.org/obo/",
+            "pubchem" : "http://rdf.ncbi.nlm.nih.gov/pubchem/compound/",
+            "dc"   :    "http://purl.org/dc/terms/",
+            "hasco" : "http://hadatac.org/ont/hasco#",
+            "vstoi" : "http://hadatac.org/ont/vstoi#",
+            "hasneto" : "http://hadatac.org/ont/hasneto#",
+            "uberon" : "http://purl.obolibrary.org/obo/UBERON_",
+            "prv" : "http://hadatac.org/ont/prov#"
+        },
+    	"@graph": [
+            {
+                "@if" : "get_class(row) is not None and len(codebook[codebook.Column == row.Column].index) > 0",
+        		"@id": "{{resolve_uri(get_class(row).strip())}}",
+                "@type" : "owl:Class",
+                "du" : [{
+                    "@for" : "i, code in codebook[codebook.Column == row.Column].iterrows()",
+                    "@do" :
+                        {
+                            "@id" : "{{get_codebook_class(code, codebook[codebook.Column == row.Column], row)}}",
+                            "@type": "Class",
+                            "dc:identifier" : "{{code.Column}}||||{{code.Code}}",
+                            "label" : {
+                                "@if" : "generate_other_label(code, codebook[codebook.Column == row.Column], row) is not None",
+                                "@value" : "{{generate_other_label(code, codebook[codebook.Column == row.Column], row)}}"
+                            },
+                            "isa" : [
+                                { "@id" : "{{resolve_uri(get_class(row).strip())}}" }
+                            ]
+                        }
+
+                }]
+    	    }
+        ]
+    }
+]'''].
