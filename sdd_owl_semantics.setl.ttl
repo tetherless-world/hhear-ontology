@@ -102,7 +102,8 @@ context = {
     "vstoi" : "http://hadatac.org/ont/vstoi#",
     "hasneto" : "http://hadatac.org/ont/hasneto#",
     "uberon" : "http://purl.obolibrary.org/obo/UBERON_",
-    "prv" : "http://hadatac.org/ont/prov#"
+    "prv" : "http://hadatac.org/ont/prov#",
+    "exo" : "http://purl.obolibrary.org/obo/ExO_"
 }
 
 global json
@@ -221,7 +222,8 @@ result = properties
             "vstoi" : "http://hadatac.org/ont/vstoi#",
             "hasneto" : "http://hadatac.org/ont/hasneto#",
             "uberon" : "http://purl.obolibrary.org/obo/UBERON_",
-            "prv" : "http://hadatac.org/ont/prov#"
+            "prv" : "http://hadatac.org/ont/prov#",
+            "exo" : "http://purl.obolibrary.org/obo/ExO_"
         },
     	"@graph": [
             {
