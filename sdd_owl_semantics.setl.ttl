@@ -110,6 +110,7 @@ context.update({
     "uberon" : "http://purl.obolibrary.org/obo/UBERON_",
     "prv" : "http://hadatac.org/ont/prov#",
     "exo" : "http://purl.obolibrary.org/obo/ExO_"
+})
 
 global json
 import json
