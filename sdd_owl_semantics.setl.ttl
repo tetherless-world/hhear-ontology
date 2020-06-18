@@ -103,12 +103,13 @@ context.update({
     "obo" :   "http://purl.obolibrary.org/obo/",
     "pubchem" : "http://rdf.ncbi.nlm.nih.gov/pubchem/compound/",
     "dc"   :    "http://purl.org/dc/terms/",
+    "hhear" :   "http://purl.org/twc/HHEAR_",
     "hasco" : "http://hadatac.org/ont/hasco#",
     "vstoi" : "http://hadatac.org/ont/vstoi#",
     "hasneto" : "http://hadatac.org/ont/hasneto#",
     "uberon" : "http://purl.obolibrary.org/obo/UBERON_",
-    "prv" : "http://hadatac.org/ont/prov#"
-})
+    "prv" : "http://hadatac.org/ont/prov#",
+    "exo" : "http://purl.obolibrary.org/obo/ExO_"
 
 global json
 import json
