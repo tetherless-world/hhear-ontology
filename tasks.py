@@ -107,11 +107,21 @@ def chear2hhear(c, inputfile, outputfile):
 
     wb.save(outputfile)
 
+def load_namespaces():
+    url = 'http://www.hadatac.org/config/hhear/namespaces-hhear-v5.properties'
+    properties = requests.get(url, headers={"User-Agent": "requests"}).text
+    properties = [row for row in properties.split('\n') if len(row) > 0]
+    properties = dict([tuple(row.split('=')) for row in properties])
+    properties = dict([(key,value.split(',')[0])
+                        for key, value in properties.items()])
+    return properties
+
 @task
 def sdd2owl(c, inputfile, ontology, outputfile, infosheet="InfoSheet"):
     import openpyxl
     import re
     import pandas as pd
+    import json
     cwd = os.getcwd()
 
     setl_graph = Graph()
@@ -148,6 +158,36 @@ def sdd2owl(c, inputfile, ontology, outputfile, infosheet="InfoSheet"):
         else:
             res.add(rdflib.RDF.type, csvw.Table)
             gen.add(prov.used, URIRef(sheet))
+    context = {
+        "@base" :  "http://purl.org/twc/ctxid/",
+        "sio" :     "http://semanticscience.org/resource/",
+        "chear" :   "http://hadatac.org/ont/chear#",
+        "skos" :    "http://www.w3.org/2004/02/skos/core#",
+        "prov" :    "http://www.w3.org/ns/prov#",
+        "dc"   :    "http://purl.org/dc/terms/",
+        "cmo"  :    "http://purl.obolibrary.org/obo/CMO_",
+        "doid" : "http://purl.obolibrary.org/obo/DOID_",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "rdfs" :    "http://www.w3.org/2000/01/rdf-schema#",
+        "chebi" :   "http://purl.obolibrary.org/obo/CHEBI_",
+        "stato" :   "http://purl.obolibrary.org/obo/STATO_",
+        "obo" :   "http://purl.obolibrary.org/obo/",
+        "pubchem" : "http://rdf.ncbi.nlm.nih.gov/pubchem/compound/",
+        "dc"   :    "http://purl.org/dc/terms/",
+        "hasco" : "http://hadatac.org/ont/hasco#",
+        "vstoi" : "http://hadatac.org/ont/vstoi#",
+        "hasneto" : "http://hadatac.org/ont/hasneto#",
+        "uberon" : "http://purl.obolibrary.org/obo/UBERON_",
+        "prv" : "http://hadatac.org/ont/prov#"
+    }
+
+    namespaces = load_namespaces()
+    context.update(namespaces)
+    setl_graph.add((sddns.metadata_transform,setl.hasContext,Literal(json.dumps(context))))
+
+    setl_graph.add((sddns.namespaces,prov.value,
+                    Literal("result = %s" % json.dumps(context))))
 
     resources = setlr._setl(setl_graph)
 
@@ -157,12 +197,14 @@ def sdd2owl(c, inputfile, ontology, outputfile, infosheet="InfoSheet"):
 
     mappings = {}
 
-    for cls in ont.subjects(rdflib.RDF.type, rdflib.OWL.Class):
+    for cls, identifier in ont.query('''select ?cls ?identifier where {
+        ?cls a owl:Class; dc:identifier ?identifier.
+    }''', initNs= {"owl":rdflib.OWL, "dc": dc}):
         if prefix in str(cls):
             id = cls.replace(prefix,'')
             integer_id = int(id,16)
             ont.add((cls, skos.notation, rdflib.Literal(integer_id)))
-            column, code = ont.value(cls, dc.identifier).split('||||')
+            column, code = identifier.split('||||')
             print("Mapping (%s, %s) => %s"%(column, code, cls))
             mappings[(column, code)] = cls
     with open(ontology,'wb') as o:

@@ -63,11 +63,14 @@ def resolve_uri(code):
 result = resolve_uri
 '''.
 
+:namespaces a owl:Class, prov:SoftwareAgent, setl:PythonScript;
+  rdfs:subClassOf prov:Activity.
 
 :get_codebook_class a owl:Class, prov:SoftwareAgent, setl:PythonScript;
   rdfs:subClassOf prov:Activity;
   prov:qualifiedDerivation [ a prov:Derivation; prov:entity :codemapping_table; prov:hadRole [ dcterms:identifier "codemap"]];
   prov:qualifiedDerivation [ a prov:Derivation; prov:entity :get_class; prov:hadRole [ dcterms:identifier "get_class"]];
+  prov:qualifiedDerivation [ a prov:Derivation; prov:entity :namespaces; prov:hadRole [ dcterms:identifier "namespaces"]];
   prov:qualifiedDerivation [ a prov:Derivation; prov:entity :resolve_uri; prov:hadRole [ dcterms:identifier "resolve_uri"]];
   prov:value '''
 global isempty
@@ -80,7 +83,10 @@ global rdflib
 import rdflib
 
 global context
-context = {
+context = {}
+context.update(namespaces)
+
+context.update({
     "@base" :  "http://purl.org/twc/sdd/metadata/study/",
     "sio" :     "http://semanticscience.org/resource/",
     "chear" :   "http://hadatac.org/ont/chear#",
@@ -102,7 +108,7 @@ context = {
     "hasneto" : "http://hadatac.org/ont/hasneto#",
     "uberon" : "http://purl.obolibrary.org/obo/UBERON_",
     "prv" : "http://hadatac.org/ont/prov#"
-}
+})
 
 global json
 import json
@@ -116,7 +122,9 @@ def result(code, codes, column):
     }
     other_classes = [c.Class.strip() for i, c in codes.iterrows() if not isempty(c.get('Class'))]
     other_classes = sorted([resolve_uri(c) for c in other_classes])
-    other_classes.append({"@type": "owl:Class", "rdfs:subClassOf": parent_class})
+    other_class = {"@type": "owl:Class", "rdfs:subClassOf": parent_class}
+    other_class['not'] = list(other_classes)
+    other_classes.append(other_class)
     json_ld_graph['du'] = other_classes
     subgraph = rdflib.Graph()
     subgraph.parse(data=json.dumps(json_ld_graph),format="json-ld", context = context)
@@ -184,8 +192,9 @@ result = properties
 
 
 :metadata a void:Dataset;
-  prov:wasGeneratedBy [
-    a setl:Transform, setl:JSLDT;
+  prov:wasGeneratedBy :metadata_transform.
+
+:metadata_transform a setl:Transform, setl:JSLDT;
     prov:used :dm_table;
     prov:qualifiedUsage [ a prov:Use; prov:entity :resolve_uri; prov:hadRole [ dcterms:identifier "resolve_uri"]];
     prov:qualifiedUsage [ a prov:Use; prov:entity :get_class; prov:hadRole [ dcterms:identifier "get_class"]];
@@ -193,34 +202,11 @@ result = properties
     prov:qualifiedUsage [ a prov:Use; prov:entity :generate_other_label; prov:hadRole [ dcterms:identifier "generate_other_label"]];
     prov:qualifiedUsage [ a prov:Use; prov:entity :dataset_properties; prov:hadRole [ dcterms:identifier "properties"]];
     prov:qualifiedUsage [ a prov:Use; prov:entity :codebook_table; prov:hadRole [ dcterms:identifier "codebook"]];
-    setl:hasContext '''"https://raw.githubusercontent.com/jimmccusker/ontext/master/owl-context.jsonld"''';
     prov:value '''
 [
     {
     	"@id": "http://purl.org/twc/sdd/metadata",
-        "@context": {
-            "@base" :  "http://purl.org/twc/ctxid/",
-            "sio" :     "http://semanticscience.org/resource/",
-            "chear" :   "http://hadatac.org/ont/chear#",
-            "skos" :    "http://www.w3.org/2004/02/skos/core#",
-            "prov" :    "http://www.w3.org/ns/prov#",
-            "dc"   :    "http://purl.org/dc/terms/",
-            "cmo"  :    "http://purl.obolibrary.org/obo/CMO_",
-            "doid" : "http://purl.obolibrary.org/obo/DOID_",
-            "owl": "http://www.w3.org/2002/07/owl#",
-            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-            "rdfs" :    "http://www.w3.org/2000/01/rdf-schema#",
-            "chebi" :   "http://purl.obolibrary.org/obo/CHEBI_",
-            "stato" :   "http://purl.obolibrary.org/obo/STATO_",
-            "obo" :   "http://purl.obolibrary.org/obo/",
-            "pubchem" : "http://rdf.ncbi.nlm.nih.gov/pubchem/compound/",
-            "dc"   :    "http://purl.org/dc/terms/",
-            "hasco" : "http://hadatac.org/ont/hasco#",
-            "vstoi" : "http://hadatac.org/ont/vstoi#",
-            "hasneto" : "http://hadatac.org/ont/hasneto#",
-            "uberon" : "http://purl.obolibrary.org/obo/UBERON_",
-            "prv" : "http://hadatac.org/ont/prov#"
-        },
+        "@context": "https://raw.githubusercontent.com/jimmccusker/ontext/master/owl-context.jsonld",
     	"@graph": [
             {
                 "@if" : "get_class(row) is not None and len(codebook[codebook.Column == row.Column].index) > 0",
@@ -246,4 +232,4 @@ result = properties
     	    }
         ]
     }
-]'''].
+]'''.
