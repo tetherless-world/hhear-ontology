@@ -18,7 +18,7 @@
 @prefix hasneto: <http://hadatac.org/ont/hasneto#> .
 
 <http://purl.org/twc/HHEAR> a owl:Ontology ;
-	owl:versionIRI <http://purl.org/twc/HHEAR/1.1> ;
+	owl:versionIRI <http://purl.org/twc/HHEAR/1.2> ;
     owl:imports
         <http://semanticscience.org/ontology/sio.owl>,
         <http://hadatac.org/ont/prov/>,

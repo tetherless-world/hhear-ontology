@@ -127,6 +127,7 @@
   "owl": "http://www.w3.org/2002/07/owl#",
   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
   "sio" :     "http://semanticscience.org/resource/",
+  "ncit" : "http://purl.obolibrary.org/obo/NCIT_",
   "foaf" : "http://xmlns.com/foaf/0.1/",
   "hhear" :   "http://purl.org/twc/HHEAR_",
   "skos" :    "http://www.w3.org/2004/02/skos/core#",
@@ -153,6 +154,7 @@
   "prv" : "http://hadatac.org/ont/prov#",
   "hhear-kb" : "http://hadatac.org/kb/hhear#",
   "CSEO" : "http://scai.fraunhofer.de/CSEO#",
+  "cogat" : "http://www.cognitiveatlas.org/ontology/cogat.owl#",
   "cmo"  :    "http://purl.obolibrary.org/obo/CMO_"
 }''';
   prov:value '''[{
