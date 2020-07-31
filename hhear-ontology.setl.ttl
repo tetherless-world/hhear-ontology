@@ -155,7 +155,8 @@
   "hhear-kb" : "http://hadatac.org/kb/hhear#",
   "CSEO" : "http://scai.fraunhofer.de/CSEO#",
   "cogat" : "http://www.cognitiveatlas.org/ontology/cogat.owl#",
-  "cmo"  :    "http://purl.obolibrary.org/obo/CMO_"
+  "cmo"  :    "http://purl.obolibrary.org/obo/CMO_",
+  "maxo" : "http://purl.obolibrary.org/obo/MAXO_"
 }''';
   prov:value '''[{
     "@id": "http://purl.org/twc/HHEAR",
