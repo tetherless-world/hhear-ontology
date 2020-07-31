@@ -206,7 +206,7 @@ def sdd2owl(c, inputfile, ontology, outputfile, infosheet="InfoSheet"):
             ont.add((cls, skos.notation, rdflib.Literal(integer_id)))
             column, code = identifier.split('||||')
             print("Mapping (%s, %s) => %s"%(column, code, cls))
-            mappings[(column, code)] = cls
+            mappings[(column, code)] = "ctxid:"+id
     with open(ontology,'wb') as o:
         ont.serialize(o, format="turtle")
 
