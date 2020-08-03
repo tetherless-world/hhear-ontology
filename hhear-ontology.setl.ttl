@@ -359,7 +359,7 @@
         ],
         "skos:notation": [
           {
-            "@if" : "'skos:notation' in row and row['skos:notation'] is not None and len(row['skos:notation'].strip()) > 0",
+            "@if" : "not isempty(row['skos:notation'])",
             "@value" : "{{row['skos:notation']}}"
           }
         ],
