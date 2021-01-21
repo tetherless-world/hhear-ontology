@@ -1,0 +1,50 @@
+@prefix maxo: <http://purl.obolibrary.org/obo/MAXO_> .
+@prefix ncit: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix sio: <http://semanticscience.org/resource/SIO_> .
+@prefix hhear: <http://purl.org/twc/HHEAR_>.
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix hhear: <http://purl.org/twc/HHEAR_> .
+@prefix hasco: <http://hadatac.org/ont/hasco#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix exo: <http://purl.obolibrary.org/obo/ExO_> . 
+@prefix foodon: <http://purl.obolibrary.org/obo/FOODON_> .
+@prefix stato: <http://purl.obolibrary.org/obo/STATO_> .
+
+hhear:00587 rdfs:subClassOf 
+	[ a owl:Restriction ;
+	  owl:onProperty sio:SIO_000369 ;
+	  owl:someValuesFrom foodon:03301641 ] .
+
+hhear:00588 rdfs:subClassOf
+        [ a owl:Restriction ;
+	  owl:onProperty sio:SIO_000369 ;
+	  owl:someValuesFrom foodon:03311701 ] .
+
+hhear:00589 rdfs:subClassOf
+        [ a owl:Restriction ;
+	  owl:onProperty sio:SIO_000369 ;
+	  owl:someValuesFrom hhear:00594 ] .
+
+hhear:00590 rdfs:subClassOf
+        [ a owl:Restriction ;
+	  owl:onProperty sio:SIO_000369 ;
+	  owl:someValuesFrom foodon:03315446 ] .
+
+hhear:00591 rdfs:subClassOf
+        [ a owl:Restriction ;
+	  owl:onProperty sio:SIO_000369 ;
+	  owl:someValuesFrom foodon:03302764 ] .
+
+hhear:00592 rdfs:subClassOf
+        [ a owl:Restriction ;
+	  owl:onProperty sio:SIO_000369 ;
+	  owl:someValuesFrom foodon:03310717 ] .
+
+hhear:00593 rdfs:subClassOf
+        [ a owl:Restriction ;
+	  owl:onProperty sio:SIO_000369 ;
+	  owl:someValuesFrom foodon:03411433 ] .
+
