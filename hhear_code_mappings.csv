@@ -474,3 +474,5 @@ parasites/uL,hhear:00019,parasites per microgram
 x109 uL,hhear:00007,billion parts per microgram
 x106 uL,hhear:00015,million parts per microgram
 x103 uL,hhear:00021,thousand parts per microgram
+ng/L,efo:0004382,nanograms per liter
+ng/g,obo:NCIT_C67396,nanogram per gram
