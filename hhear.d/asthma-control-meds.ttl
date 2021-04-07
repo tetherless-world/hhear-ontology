@@ -1,0 +1,122 @@
+@prefix maxo: <http://purl.obolibrary.org/obo/MAXO_> .
+@prefix ncit: <http://purl.obolibrary.org/obo/NCIT_> .
+@prefix sio: <http://semanticscience.org/resource/SIO_> .
+@prefix hhear: <http://purl.org/twc/HHEAR_>.
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix hhear: <http://purl.org/twc/HHEAR_> .
+@prefix hasco: <http://hadatac.org/ont/hasco#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix exo: <http://purl.obolibrary.org/obo/ExO_> .
+
+<http://purl.bioontology.org/ontology/RXNORM/1155693>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Beclomethasone HFA" .
+
+<http://purl.bioontology.org/ontology/RXNORM/746826>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Budesonide DPI (Pulmicort)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/2108295>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Budesonide nebulized (Pulmicort)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/1170658>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Ciclesonide HFA (Alvesco)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/1245274>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Flunisolide HFA (Aerospan)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/1547653>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Fluticasone furoate DPI (Arnuity Ellipta)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/746805>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Fluticasone propionate DPI (Flovent Diskus)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/746412>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Fluticasone propionate HFA (Flovent HFA)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/746795>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Mometasone DPI (Asmanex)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/1536143>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Mometasone HFA (Asmanex HFA)" .
+
+# Long-acting beta2 agonists
+
+<http://purl.bioontology.org/ontology/RXNORM/327148>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Budesonide/formoterol (Symbicort)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/896189>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Fluticasone/salmeterol DPI (Advair Diskus)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/896270>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Fluticasone/salmeterol HFA(Advair HFA)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/1539889>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Fluticasone/vilanterol (Breo Ellipta)" .
+
+# Leukotriene receptor antagonists
+
+<http://purl.bioontology.org/ontology/RXNORM/153889>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Montelukast (Singulair)" .
+
+<http://purl.bioontology.org/ontology/RXNORM/135092>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Zafirlukast (Accolate)" .
+
+# Leukotriene inhibitor
+
+<http://purl.bioontology.org/ontology/RXNORM/221047>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Zileuton (Zyflo)" .
+
+# Methylxanthines
+
+<http://purl.bioontology.org/ontology/RXNORM/10438>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Theophylline" .
+
+<http://purl.bioontology.org/ontology/RXNORM/42612>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Cromolyn" .
+
+#  Monoclonals
+
+<http://purl.bioontology.org/ontology/RXNORM/356767>
+  a owl:Class ;
+  rdfs:subClassOf hhear:00648 ;
+  rdfs:label "Omalizumab (Xolair)" .

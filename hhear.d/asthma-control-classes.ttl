@@ -1,0 +1,91 @@
+@prefix hhear: <http://purl.org/twc/HHEAR_> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sio: <http://semanticscience.org/ontology/sio.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/twc/HHEAR_00649>
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://semanticscience.org/resource/SIO_001398> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty <http://semanticscience.org/resource/SIO_000230> ;
+      owl:someValuesFrom <http://purl.org/twc/HHEAR_00648> ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty <http://semanticscience.org/resource/SIO_000291> ;
+      owl:someValuesFrom <http://semanticscience.org/resource/SIO_000393> ;
+    ] ;
+.
+
+<http://purl.org/twc/HHEAR_00655>
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://purl.org/twc/HHEAR_00649> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty <http://semanticscience.org/resource/SIO_000217> ;
+      owl:someValuesFrom <http://purl.org/twc/HHEAR_00650> ;
+    ] ;
+.
+
+<http://purl.org/twc/HHEAR_00656>
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://purl.org/twc/HHEAR_00649> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty <http://semanticscience.org/resource/SIO_000217> ;
+      owl:someValuesFrom <http://purl.org/twc/HHEAR_00651> ;
+    ] ;
+.
+
+<http://purl.org/twc/HHEAR_00657>
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://purl.org/twc/HHEAR_00649> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty <http://semanticscience.org/resource/SIO_000217> ;
+      owl:someValuesFrom <http://purl.org/twc/HHEAR_00652> ;
+    ] ;
+.
+
+<http://purl.org/twc/HHEAR_00658>
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://purl.org/twc/HHEAR_00649> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty <http://semanticscience.org/resource/SIO_000217> ;
+      owl:someValuesFrom <http://purl.org/twc/HHEAR_00653> ;
+    ] ;
+.
+
+<http://purl.org/twc/HHEAR_00659>
+  rdf:type owl:Class ;
+  rdfs:subClassOf <http://purl.org/twc/HHEAR_00649> ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty <http://semanticscience.org/resource/SIO_000217> ;
+      owl:someValuesFrom <http://purl.org/twc/HHEAR_00654> ;
+    ] ;
+.
+
+hhear:00660
+  rdf:type owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty sio:SIO_001157 ;
+    owl:someValuesFrom hhear:00640 ] ;
+.
+
+hhear:00661
+  rdf:type owl:Class ;
+  rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty sio:SIO_001157 ;
+    owl:someValuesFrom hhear:00640 ] ;
+.
+
+hhear:00649 owl:equivalentClass [ owl:unionOf (hhear:00666 hhear:00655) ] .
+
+hhear:00666 owl:disjointWith hhear:00655 .
