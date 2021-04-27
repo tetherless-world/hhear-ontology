@@ -477,3 +477,7 @@ x103 uL,hhear:00021,thousand parts per microgram
 ng/L,efo:0004382,nanograms per liter
 ng/g,obo:NCIT_C67396,nanogram per gram
 pmol/ml,hhear:00020,picomoles per milliliter
+F2A8IP,chebi:34505,8-iso Prostaglandin F2α
+F2A23D,chebi:34230,2_3-dinor-8-iso Prostaglandin F2α
+F2AVI,chebi:140933,5-iso Prostaglandin F2α-VI
+F2A12I,hhear:00731,8_12-iso-Isoprostane-F2α-VI
