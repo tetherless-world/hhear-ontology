@@ -1,0 +1,61 @@
+@prefix hhear: <http://purl.org/twc/HHEAR_> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sio: <http://semanticscience.org/resource/>.
+@prefix obo: <http://purl.obolibrary.org/obo/>.
+
+# "Iron Vitamin Supplement" is a subclass of things that have some Iron as a component part
+<http://purl.org/twc/HHEAR_00757>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom obo:CHEBI_18248 ;
+    owl:onProperty sio:SIO_000313 ;
+  ] ;
+.
+
+# "Uses Iron Supplement" is a subclass of things that have "Iron Vitamin Supplement" as an input
+<http://purl.org/twc/HHEAR_00758>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom hhear:00757 ;
+    owl:onProperty sio:SIO_000230 ;
+  ] ;
+.
+
+# "Folic Acid Vitamin Supplement" is a subclass of things that have some Folic Acid as a component part
+<http://purl.org/twc/HHEAR_00759>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom obo:CHEBI_27470 ;
+    owl:onProperty sio:SIO_000313 ;
+  ] ;
+.
+
+# "Uses Folic Acid Supplement" is a subclass of things that have "Folic Acid Vitamin Supplement" as an input
+<http://purl.org/twc/HHEAR_00760>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom hhear:00759 ;
+    owl:onProperty sio:SIO_000230 ;
+  ] ;
+.
+
+# "B6 Vitamin Supplement" is a subclass of things that have some Vitamin B6 as a component part
+<http://purl.org/twc/HHEAR_00761>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom obo:CHEBI_27306 ;
+    owl:onProperty sio:SIO_000313 ;
+  ] ;
+.
+
+# "Uses B6 Supplement" is a subclass of things that have "B6 Vitamin Supplement" as an input
+<http://purl.org/twc/HHEAR_00762>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom hhear:00761 ;
+    owl:onProperty sio:SIO_000230 ;
+  ] ;
+.

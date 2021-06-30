@@ -1,0 +1,133 @@
+@prefix hhear: <http://purl.org/twc/HHEAR_> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sio: <http://semanticscience.org/resource/>.
+@prefix obo: <http://purl.obolibrary.org/obo/>.
+@prefix cogat: <http://www.cognitiveatlas.org/ontology/cogat.owl#CAO_>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+
+# "Verbal Developmental Quotient" is derived from Mullens Receptive Language and Mullens Expressive Language
+<http://purl.org/twc/HHEAR_00750>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom cogat:03173 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom cogat:03174 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+.
+
+# "Non-Verbal Developmental Quotient" is derived from Mullens Visual Reception and Mullens Fine Motor
+<http://purl.org/twc/HHEAR_00751>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom cogat:03171 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom cogat:03172 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+.
+
+##### Vineland Domains and Sub-Scales #####
+
+cogat:03225 rdfs:subClassOf hhear:00752 .
+cogat:03227 rdfs:subClassOf hhear:00752 .
+cogat:03228 rdfs:subClassOf hhear:00752 .
+cogat:03232 rdfs:subClassOf hhear:00753 .
+cogat:03229 rdfs:subClassOf hhear:00753 .
+cogat:03230 rdfs:subClassOf hhear:00753 .
+cogat:03231 rdfs:subClassOf hhear:00753 .
+cogat:03234 rdfs:subClassOf hhear:00754 .
+cogat:03233 rdfs:subClassOf hhear:00754 .
+cogat:03226 rdfs:subClassOf hhear:00755 .
+cogat:03223 rdfs:subClassOf hhear:00755 .
+cogat:03224 rdfs:subClassOf hhear:00755 .
+
+# "Daily Living Skills Developmental Quotient" is derived from Vineland Daily Living Skills Domain
+<http://purl.org/twc/HHEAR_00773>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom hhear:00752 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+.
+
+# "Socialization Developmental Quotient" is derived from Vineland Socialization Domain
+<http://purl.org/twc/HHEAR_00774>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom hhear:00753 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+.
+
+# "Motor Skills Developmental Quotient" is derived from Vineland Motor Skills Domain
+<http://purl.org/twc/HHEAR_00775>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom hhear:00754 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+.
+
+# "Communication Developmental Quotient" is derived from Vineland Communication Domain
+<http://purl.org/twc/HHEAR_00776>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom hhear:00755 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+.
+
+# "Receptive Language Developmental Quotient" is derived from Mullens Receptive Language
+<http://purl.org/twc/HHEAR_00777>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom cogat:03174 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+.
+
+# "Expressive Language Developmental Quotient" is derived from Mullens Expressive Language
+<http://purl.org/twc/HHEAR_00778>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom cogat:03173 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+.
+
+# "Visual Reception Developmental Quotient" is derived from Mullens Visual Reception
+<http://purl.org/twc/HHEAR_00779>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom cogat:03171 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+.
+
+# "Fine Motor Developmental Quotient" is derived from Mullens Fine Motor
+<http://purl.org/twc/HHEAR_00780>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom cogat:03172 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+.
+
+# "Early Learning Developmental Quotient" is derived from Mullens Early Learning
+<http://purl.org/twc/HHEAR_00781>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom cogat:01393 ;
+    owl:onProperty prov:wasDerivedFrom ;
+  ] ;
+.

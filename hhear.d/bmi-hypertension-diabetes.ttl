@@ -1,0 +1,149 @@
+@prefix hhear: <http://purl.org/twc/HHEAR_> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sio: <http://semanticscience.org/resource/>.
+@prefix obo: <http://purl.obolibrary.org/obo/>.
+
+<http://purl.org/twc/HHEAR_00737> # Healthy BMI
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:hasValue obo:UO_0000086 ;
+    owl:onProperty sio:SIO_000221 ;
+  ] ;
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty sio:SIO_000216 ;
+    owl:someValuesFrom [
+        rdf:type owl:Class ;
+        owl:intersectionOf (
+            sio:SIO_001114
+            [
+              rdf:type owl:Restriction ;
+              owl:hasValue "25.0"^^xsd:float ;
+              owl:onProperty sio:SIO_000300 ;
+            ]
+          ) ;
+      ] ;
+  ] ;
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty sio:SIO_000216 ;
+    owl:someValuesFrom [
+        rdf:type owl:Class ;
+        owl:intersectionOf (
+            sio:SIO_001113
+            [
+              rdf:type owl:Restriction ;
+              owl:hasValue "0.0"^^xsd:float ;
+              owl:onProperty sio:SIO_000300 ;
+            ]
+          ) ;
+      ] ;
+  ] ;
+.
+
+<http://purl.org/twc/HHEAR_00738> # Overweight BMI
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:hasValue obo:UO_0000086 ;
+    owl:onProperty sio:SIO_000221 ;
+  ] ;
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty sio:SIO_000216 ;
+    owl:someValuesFrom [
+        rdf:type owl:Class ;
+        owl:intersectionOf (
+            sio:SIO_001114
+            [
+              rdf:type owl:Restriction ;
+              owl:hasValue "29.0"^^xsd:float ;
+              owl:onProperty sio:SIO_000300 ;
+            ]
+          ) ;
+      ] ;
+  ] ;
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty sio:SIO_000216 ;
+    owl:someValuesFrom [
+        rdf:type owl:Class ;
+        owl:intersectionOf (
+            sio:SIO_001113
+            [
+              rdf:type owl:Restriction ;
+              owl:hasValue "25.0"^^xsd:float ;
+              owl:onProperty sio:SIO_000300 ;
+            ]
+          ) ;
+      ] ;
+  ] ;
+.
+
+<http://purl.org/twc/HHEAR_00739> # Obese BMI
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:hasValue obo:UO_0000086 ;
+    owl:onProperty sio:SIO_000221 ;
+  ] ;
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:onProperty sio:SIO_000216 ;
+    owl:someValuesFrom [
+        rdf:type owl:Class ;
+        owl:intersectionOf (
+            sio:SIO_001113
+            [
+              rdf:type owl:Restriction ;
+              owl:hasValue "29.0"^^xsd:float ;
+              owl:onProperty sio:SIO_000300 ;
+            ]
+          ) ;
+      ] ;
+  ] ;
+.
+
+<http://purl.org/twc/HHEAR_00740>
+  owl:unionOf (obo:DOID_10763 obo:DOID_9351) .
+
+
+<http://purl.org/twc/HHEAR_00741>
+  rdfs:subClassOf [
+    rdf:type owl:Class ;
+    owl:intersectionOf (
+      <http://purl.org/twc/HHEAR_00737>
+      [
+        rdf:type owl:Class ;
+        owl:complementOf <http://purl.org/twc/HHEAR_00740> ;
+      ]
+    ) ;
+  ] ;
+.
+
+<http://purl.org/twc/HHEAR_00742>
+  rdfs:subClassOf [
+    rdf:type owl:Class ;
+    owl:intersectionOf (
+      <http://purl.org/twc/HHEAR_00738>
+      [
+        rdf:type owl:Class ;
+        owl:complementOf <http://purl.org/twc/HHEAR_00740> ;
+      ]
+    ) ;
+  ] ;
+.
+
+<http://purl.org/twc/HHEAR_00743>
+  rdfs:subClassOf [
+    rdf:type owl:Class ;
+    owl:intersectionOf (
+      <http://purl.org/twc/HHEAR_00739>
+      [
+        rdf:type owl:Class ;
+        owl:complementOf <http://purl.org/twc/HHEAR_00740> ;
+      ]
+    ) ;
+  ] ;
+.

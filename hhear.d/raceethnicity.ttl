@@ -12,6 +12,6 @@
 @prefix exo: <http://purl.obolibrary.org/obo/ExO_> . 
 
 hhear:00609 
-        owl:eqiuvalentClase 
+        owl:equivalentClass 
 	    [ owl:unionOf (sio:001014 sio:001015) ] .
 

@@ -1,0 +1,86 @@
+@prefix hhear: <http://purl.org/twc/HHEAR_> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sio: <http://semanticscience.org/ontology/sio.owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix hasco: <http://hadatac.org/ont/hasco#> .
+@prefix doid: <http://purl.obolibrary.org/obo/DOID_> .
+
+hhear:00705
+  rdfs:subClassOf
+    [ a owl:Restriction ;
+      owl:onProperty sio:SIO_000636 ;
+      owl:someValuesFrom doid:2841 .] ;
+.
+
+hhear:00706
+  rdfs:subClassOf
+    [ a owl:Restriction ;
+      owl:onProperty sio:SIO_000636 ;
+      owl:someValuesFrom obo:HP_0410322 .] ;
+.
+
+hhear:00707
+  rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty sio:SIO_000636 ;
+    owl:someValuesFrom obo:HP_0410334 .] ;
+.
+
+hhear:00708
+  rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty sio:SIO_000636 ;
+    owl:someValuesFrom obo:HP_0410334 .] ;
+.
+
+hhear:00709
+  rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty sio:SIO_000636 ;
+    owl:someValuesFrom obo:HP_0410335 .] ;
+.
+
+hhear:00710
+  rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty sio:SIO_000636 ;
+    owl:someValuesFrom obo:HP_0410320 .] ;
+.
+
+hhear:00711
+  rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty sio:SIO_000636 ;
+    owl:someValuesFrom obo:HP_0410320 .] ;
+.
+
+hhear:00712
+  rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty sio:SIO_000636 ;
+    owl:someValuesFrom obo:HP_0410320 .] ;
+.
+
+hhear:00713
+  rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty sio:SIO_000636 ;
+    owl:someValuesFrom obo:HP_0410325 .] ;
+.
+
+hhear:00714
+  rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty sio:SIO_000636 ;
+    owl:someValuesFrom obo:HP_0410325 .] ;
+.
+
+hhear:00715
+  rdfs:subClassOf
+  [ a owl:Restriction ;
+    owl:onProperty sio:SIO_000636 ;
+    owl:someValuesFrom obo:HP_0410325 .] ;
+.

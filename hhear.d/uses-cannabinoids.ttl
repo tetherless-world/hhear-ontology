@@ -1,0 +1,15 @@
+@prefix hhear: <http://purl.org/twc/HHEAR_> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sio: <http://semanticscience.org/resource/>.
+@prefix obo: <http://purl.obolibrary.org/obo/>.
+
+<http://purl.org/twc/HHEAR_00744>
+rdfs:subClassOf [
+    rdf:type owl:Restriction ;
+    owl:someValuesFrom obo:CHEBI_67194 ;
+    owl:onProperty sio:SIO_000230 ;
+  ] ;
+.
