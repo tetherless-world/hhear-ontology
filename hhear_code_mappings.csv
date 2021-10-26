@@ -189,6 +189,7 @@ L,obo:UO_0000099,liter
 l/kg,obo:UO_0000197,liter per kilogram
 Li,chebi:30145,Lithium
 lm,obo:UO_0000118,lumen
+LTE4,chebi:15650,leukotriene E4
 lx,obo:UO_0000116,lux
 m,obo:UO_0000008,Meter
 M,obo:UO_0000062,molar
@@ -301,6 +302,7 @@ Ntn,obo:UO_0000108,newton
 nV,obo:UO_0000250,nanovolt
 OHEtP,pubchem:77547,Protocatechuic acid ethyl ester
 OHMeP,pubchem:287064,"3, 4-Dihydroxy-benzoic acid methyl ester"
+OS8OHDG,chebi:40304,8-OH-deoxyguanosine
 OXB,chebi:34283,Oxybenzone
 OXY,chebi:28063,o-Xylene
 P,uberon:0001969,Plasma
