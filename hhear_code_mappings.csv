@@ -396,6 +396,7 @@ TOL,chebi:17578,Toluene
 Trimethylarsine oxide,chebi:27131,Trimethylarsine oxide
 TTCA,hhear:00332,2-Thioxothiazolidine-4-carboxylic acid
 U,uberon:0001088,Urine
+BR,uberon:0001913,Breast Milk
 U/l,obo:UO_0000179,unit per liter
 U/ml,obo:UO_0000178,unit per milliliter
 uA,obo:UO_0000038,microampere
