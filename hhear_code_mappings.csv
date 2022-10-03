@@ -212,6 +212,7 @@ mCHpP,hhear:00439,mono(7-carboxyheptyl)phthalate
 mCi,obo:UO_0000145,millicurie
 mCINP,hhear:00443,mono-carboxy isononyl phthalate
 mCIOP,hhear:00444,mono-carboxy isooctyl phthalate
+mCOP,hhear:00444,mono-carboxy isooctyl phthalate
 MCMHP,pubchem:187353,Mono-2-(carboxymethyl) hexyl phthalate
 MCOMHP,hhear:00437,mono (6-COOH-2-methylheptyl) phthalate
 MCOMOP,hhear:00438,mono (7-COOH-2-methyloctyl) phthalate
