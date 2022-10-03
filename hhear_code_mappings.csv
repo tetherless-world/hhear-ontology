@@ -35,6 +35,7 @@ BAPT,hhear:00457,Benzo[a]pyrene tetraol
 BCP1,hhear:00451,1-hydroxybenzo[c]-phenanthrene
 BCP2,hhear:00452,2-hydroxybenzo[c]-phenanthrene
 BCP3,hhear:00453,3-hydroxybenzo[c]-phenanthrene
+BDCPP,chebi:166469,"Bis(1,3-dichloro-2-propyl) phosphate"
 BDE100,hhear:00324,"2, 2', 4, 4', 6-Pentabromodiphenyl ether"
 BDE153,hhear:00321,"2, 2', 4, 4', 5, 5'-Hexabromodiphenyl ether"
 BDE154,hhear:00322,"2, 2', 4, 4', 5, 6'-Hexabromodiphenyl ether"
@@ -120,6 +121,7 @@ DMDP,hhear:00434,dimethyldithiophosphate
 DMP,hhear:00435,dimethylphosphate
 DMTP,hhear:00436,dimethylthiophosphate
 dpi,obo:UO_0000240,dots per inch
+DPHP,chebi:166468,Diphenyl Phosphate 
 dpm,obo:UO_0000147,disintegrations per minute
 DPMA,hhear:00383,"N-Acetyl-S-(2, 4-dimethylphenyl)-L-cysteine + N-Acetyl-S-(2, 5-dimethylphenyl)-L-cysteine + N-Acetyl-S-(3, 4-dimethylphenyl)-L-cysteine"
 dps,obo:UO_0000216,disintegrations per second
