@@ -216,6 +216,7 @@ mCINP,hhear:00443,mono-carboxy isononyl phthalate
 mCIOP,hhear:00444,mono-carboxy isooctyl phthalate
 mCOP,hhear:00444,mono-carboxy isooctyl phthalate
 MCMHP,pubchem:187353,Mono-2-(carboxymethyl) hexyl phthalate
+MCOCH,chebi:166459,"Cyclohexane-1, 2-dicarboxylic acid mono carboxyisooctyl ester (DINCH)"
 MCOMHP,hhear:00437,mono (6-COOH-2-methylheptyl) phthalate
 MCOMOP,hhear:00438,mono (7-COOH-2-methyloctyl) phthalate
 MCP2,chebi:47083,2-Chlorophenol
@@ -226,7 +227,7 @@ mdu,obo:UO_0000052,mass density unit
 ME,uberon:0007109,Meconium
 mECPP,hhear:00440,mono-(2-ethyl-5-carboxypentyl) phthalate
 MEHHP,pubchem:170295,mono (2-ethyl-5-hydroxyhexyl) phthalate
-MEHP,chebi:17243,mono ethyl hexyl phthalate
+MEHP,chebi:17243,mono(2-ethylhexyl) phthalate
 MEOHP,pubchem:119096,mono (2-ethyl-5-oxohexyl) phthalate
 MEP,chebi:70973,monoethyl phthalate (DEP)
 MePB,chebi:31835,Methyl Paraben
@@ -240,6 +241,8 @@ MHA34,hhear:00337,3-Methylhippuric acid + 4-Methylhippuric acid
 MHBMA1,hhear:00380,N-Acetyl-S-(1-hydroxymethyl-2-propenyl)-L-cysteine
 MHBMA2,hhear:00388,N-Acetyl-S-(2-hydroxy-3-butenyl)-L-cysteine
 MHBMA3,hhear:00391,N-Acetyl-S-(4-hydroxy-2-buten-1-yl)-L-cysteine
+MHIBP,pubchem:71371900,2-[(2-Hydroxy-2-methylpropoxy)carbonyl]benzoate
+MHNCH,chebi:166460,"Cyclohexane-1, 2-dicarboxylic acid mono hydroxyisononyl ester (DINCH)"
 mHpP,hhear:00441,mono-2-heptyl phthalate
 mHxP,pubchem:20269373,mono-hexyl phthalate
 MiB,obo:UO_0000246,mebibyte
