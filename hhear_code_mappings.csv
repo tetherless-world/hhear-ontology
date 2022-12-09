@@ -321,11 +321,15 @@ PBB153,hhear:00320,"2, 2', 4, 4', 5, 5'-Hexabromobiphenyl"
 PCP,chebi:17642,Pentachlorophenol
 PFBA,chebi:39426,Perfluorobutanoic acid
 PFBS,pubchem:67815,Perfluorobutanesulfonic acid
+PFDA,chebi:35546,Perfluorodecanoic acid
+PFHPA,pubchem:67818,Perluoroheptanoic acid
+PFHpS,pubchem:67820,Perfluoroheptanesulfonic acid
 PFHxA,chebi:83492,Perfluorohexanoic acid
 PFHxS,pubchem:67734,Perfluorohexane-1-sulphonic acid
 PFNA,chebi:38397,Perfluorononanoic acid
 PFOA,chebi:35549,Perfluorooctanoic acid
 PFOS,chebi:39421,Perfluorooctanesulfonic acid
+PFUNDA,hhear:00410,Perfluroundecanoic acid
 PFPeA,chebi:83491,Perfluoro-n-pentanoic acid
 pfu,obo:UO_0000211,plaque forming unit
 pfu/ml,obo:UO_0000215,plaque forming unit per milliliter
