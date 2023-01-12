@@ -207,7 +207,7 @@ mass per unit area unit,obo:UO_0000054,area density unit
 Mb,obo:UO_0000329,megabasepair
 MB,obo:UO_0000235,megabyte
 MBP,pubchem:31736,mono benzyl phthalate (BzBP)
-mBzP,hhear:00442,mono-benzyl phthalate
+mBzP,pubchem:31736,mono-benzyl phthalate
 MCEPP,pubchem:148386,mono (5-carboxy-2-ethylpentyl) phthalate (DEHP)
 MCHP,pubchem:165618,Monocyclohexyl phthalate
 mCHpP,hhear:00439,mono(7-carboxyheptyl)phthalate
@@ -225,7 +225,7 @@ MCP4,chebi:28078,4-Chlorophenol
 MCPP,pubchem:53435014,mono (3-carboxypropyl) phthalate (multiple)
 mdu,obo:UO_0000052,mass density unit
 ME,uberon:0007109,Meconium
-mECPP,hhear:00440,mono-(2-ethyl-5-carboxypentyl) phthalate
+mECPP,pubchem:148386,mono-(2-ethyl-5-carboxypentyl) phthalate
 MEHHP,pubchem:170295,mono (2-ethyl-5-hydroxyhexyl) phthalate
 MEHP,chebi:17243,mono(2-ethylhexyl) phthalate
 MEOHP,pubchem:119096,mono (2-ethyl-5-oxohexyl) phthalate
